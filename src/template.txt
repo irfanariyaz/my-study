@@ -1,0 +1,52 @@
+we has a html file with js hello world and one para.
+next we created  a template folder in src.
+and a file base.html inside it.this is called from viwews
+
+return render(request,"base.html",{"html_var":"irfana","num":num})
+we added path of template folder in DIRS ofbase.py of setting
+{TEMPLATES = [
+
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+imported random in views and 
+def home(request):
+	num=random.randint(0,1000)
+	return render(request,"base.html","html_var":"irfana","num":num})
+and in base.html wrote this code
+
+<!doctype html>
+<html lang="en">
+<head> 
+<head> 
+</head>
+<body>
+<h1>hello world</h1>
+<p>
+	This is {{html_var}}
+</p>
+<p>
+	
+	Random number {{num}}
+</p>
+
+</body>
+</html>
+i got output as this in browser
+
+hello world
+
+This is irfana 
+
+Random number 338 
+
